@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1117">
+<title>DeepSeek 余额看板</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <img src="icon.svg" alt="" width="28" height="28">
+    <h1>DeepSeek 看板</h1>
+  </div>
+  <button id="refreshBtn" class="ghost" title="刷新">刷新</button>
+</header>
+
+<main>
+  <!-- 余额卡片 -->
+  <section class="card balance" id="balanceCard">
+    <div class="card-title">账户余额</div>
+    <div class="balance-value" id="balanceValue">——</div>
+    <div class="balance-sub" id="balanceSub"></div>
+    <div class="card-meta" id="balanceMeta">尚未查询</div>
+  </section>
+
+  <!-- token/花费(需 dsh gateway/后端) -->
+  <section class="card" id="statsCard">
+    <div class="card-title">Token 与花费 <span class="pill" id="statsSource">估算</span></div>
+    <div id="statsBody" class="stats-body"><p class="dim">配置后端地址后可显示 dsh 实测 token、缓存命中率与花费明细。</p></div>
+  </section>
+
+  <section class="card settings">
+    <div class="card-title" id="settingsToggle">设置 <span class="caret">▾</span></div>
+    <div id="settingsBody" class="settings-body">
+      <label>API Key(DeepSeek 开放平台,仅存本机浏览器)</label>
+      <input type="password" id="apiKey" placeholder="sk-…" autocomplete="off">
+      <label>后端地址(可选,见 README 的 gateway)</label>
+      <input type="text" id="backend" placeholder="例如 http://192.168.1.5:8090/api/dsh/usage-stats">
+      <div class="row">
+        <button id="testKeyBtn" class="primary">保存并测试</button>
+        <button id="clearBtn" class="ghost">清除</button>
+      </div>
+      <p class="dim small">Key 仅在本机与 api.deepseek.com 之间传输(HTTPS),不会上传到别处。</p>
+    </div>
+  </section>
+</main>
+
+<footer id="status">准备就绪</footer>
+<script>
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    navigator.serviceWorker.register("sw.js").catch(function () {});
+  }
+</script>
+<script src="app.js"></script>
+</body>
+</html>

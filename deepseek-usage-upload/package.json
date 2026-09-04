@@ -1,0 +1,15 @@
+{
+  "name": "deepseek-usage-dash",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mobile PWA + tiny gateway to check your DeepSeek API balance and token usage.",
+  "type": "commonjs",
+  "scripts": {
+    "serve": "node gateway.js",
+    "test": "node --test test/"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
