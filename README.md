@@ -1,0 +1,4 @@
+DeepSeek Usage Dash 是一个手机端看板:打开网页、填入你的 DeepSeek API Key,就能实时查看账户余额与充值/赠送拆分;可选接入你本机的 dsh 用量统计后端,进一步显示 token 分桶、缓存命中率与花费估算。基于 PWA,支持「添加到主屏幕」当独立应用使用,无需安装原生 App。
+说明:本项目为个人开源的非官方工具,与 DeepSeek 无关联;余额以你所填 Key 的账户为准,token 明细来自你配置的上游数据,金额为估算口径,最终以官方后台为准
+DeepSeek Usage Dash is a mobile-first dashboard: open the page, paste your DeepSeek API key, and see your account balance (including top-up/granted split) in real time. Optionally point it at the usage-stats endpoint of your own dsh instance to also view token buckets, cache-hit rate and estimated spend. It is a PWA — "Add to Home Screen" turns it into a standalone app, no native installation needed.
+Note: this is an unofficial, personal open-source project, not affiliated with DeepSeek. The balance reflects the account of the key you enter; token details come from the upstream you configure; amounts are estimates — always verify against the official console.
